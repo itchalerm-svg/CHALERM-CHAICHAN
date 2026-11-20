@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ประกาศบริษัท - CHALERM CHAICHAN</title>
+
+  <!-- ฟอนต์ Prompt ให้ตรงกับหน้าประกาศบริษัท -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- PWA & Mobile Web App Capabilities -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#F43F5E">
+
+  <!-- Resource Optimization Hints -->
+  <link rel="preconnect" href="https://script.google.com" crossorigin>
+  <link rel="dns-prefetch" href="https://script.google.com">
+  <link rel="preload" as="document" href="https://script.google.com/macros/s/AKfycbw-5P6tph5_vIF0ygdJgbWpGXpgNHxZsYkVoGwi2uK4LHzR-MnnQZ7JMykELleviwNlyQ/exec">
+
+  <style>
+    :root {
+      --bg-surface: #F8FAFC;
+      --bg-gradient: radial-gradient(circle at top, #FFF5F6 0%, #F8FAFC 65%, #FFE8EB 140%);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-soft: rgba(244, 63, 94, 0.14);
+      --accent-primary: #F43F5E;
+      --accent-dark: #E11D48;
+      --accent-soft: #FFF1F2;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+    }
+
+    .app-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* หน้าจอโหลดธีม CHALERM CHAICHAN Announcements */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-gradient);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+
+    .brand-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 32px 38px;
+      border-radius: 24px;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 16px 36px -8px rgba(244, 63, 94, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    }
+
+    .loader-ring {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 18px;
+      background: var(--accent-soft);
+    }
+
+    .loader-ring::before {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border: 2.5px solid rgba(244, 63, 94, 0.15);
+      border-top-color: var(--accent-primary);
+      border-radius: 22px;
+      animation: spin 0.85s linear infinite;
+    }
+
+    .megaphone-icon {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-title {
+      color: var(--text-main);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .brand-title span {
+      color: var(--accent-primary);
+    }
+
+    .brand-sub {
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 400;
+      margin: -8px 0 2px;
+    }
+
+    .loading-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #FFF1F2;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- หน้าจอโหลดโทนสว่าง Coral / Rose -->
+  <div id="loading-screen">
+    <div class="brand-card">
+      <div class="loader-ring">
+        <svg class="megaphone-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 16H15L26 10V30L15 24H11C9.89543 24 9 23.1046 9 22V18C9 16.8954 9.89543 16 11 16Z" fill="url(#ccc_news_grad)"/>
+          <rect x="9" y="16" width="6" height="8" rx="1.5" fill="#E11D48"/>
+          <path d="M12 24L13.5 30.5C13.7 31.3 14.4 31.8 15.2 31.8H16.5C17.2 31.8 17.7 31.1 17.5 30.4L16 24H12Z" fill="#94A3B8"/>
+          <rect x="26" y="9" width="2.5" height="22" rx="1.25" fill="#BE123C"/>
+          <path d="M28.5 17C30.2 17 31.5 18.3 31.5 20C31.5 21.7 30.2 23 28.5 23V17Z" fill="#64748B"/>
+          <defs>
+            <linearGradient id="ccc_news_grad" x1="15" y1="10" x2="26" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FB7185"/>
+              <stop offset="1" stop-color="#E11D48"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="brand-title">ประกาศ<span>บริษัท</span></h1>
+      <p class="brand-sub">CHALERM CHAICHAN</p>
+      <div class="loading-status">
+        <span class="dot"></span>
+        <span>กำลังโหลดข่าวสารองค์กร...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <iframe
+      id="appFrame"
+      src="https://script.google.com/macros/s/AKfycbw-5P6tph5_vIF0ygdJgbWpGXpgNHxZsYkVoGwi2uK4LHzR-MnnQZ7JMykELleviwNlyQ/exec"
+      allow="geolocation; camera; microphone"
+      scrolling="yes"
+      onload="hideLoader()">
+    </iframe>
+  </div>
+
+  <script>
+    let isLoaded = false;
+
+    function hideLoader() {
+      if (isLoaded) return;
+      isLoaded = true;
+
+      const loader = document.getElementById('loading-screen');
+      const frame = document.getElementById('appFrame');
+
+      frame.style.opacity = '1';
+      loader.style.opacity = '0';
+
+      setTimeout(function() {
+        loader.style.visibility = 'hidden';
+      }, 450);
+    }
+
+    // Safety Fallback หากโหลดช้าให้แสดงหน้าเว็บภายใน 3.5 วินาที
+    setTimeout(hideLoader, 3500);
+
+    // ปรับความสูง iframe อัตโนมัติเมื่อมีการส่งข้อความจากด้านใน
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.frameHeight) {
+        const frame = document.getElementById('appFrame');
+        if (frame) {
+          frame.style.height = e.data.frameHeight + 'px';
+        }
+      }
+    }, false);
+
+    // ป้องกัน Pinch-Zoom บนมือถือ
+    document.addEventListener('touchmove', function(e) {
+      if (e.scale && e.scale !== 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  </script>
+
+</body>
+</html>
